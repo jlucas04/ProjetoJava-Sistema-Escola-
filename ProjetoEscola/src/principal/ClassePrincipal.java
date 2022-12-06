@@ -44,9 +44,17 @@ public class ClassePrincipal{
 		
 		
 		int escolha = JOptionPane.showConfirmDialog(null, "Deseja removar alguma disciplina?");
+		
 		if (escolha == 0) {
-			String disciplinaRemover = JOptionPane.showInputDialog("Qual a disciplina? 1,2,3 ou 4?");
-			Aluno1.getDisciplinas().remove(Integer.valueOf(disciplinaRemover).intValue() - 1);
+			int continuarRemover = 0 ;
+			int posicao = 1;
+			while(continuarRemover == 0) {
+				String disciplinaRemover = JOptionPane.showInputDialog("Qual a disciplina? 1,2,3 ou 4?");
+				Aluno1.getDisciplinas().remove(Integer.valueOf(disciplinaRemover).intValue() - posicao);
+				posicao++;
+				continuarRemover = JOptionPane.showConfirmDialog(null, "Continuar a remover Disciplinas?");
+				
+			}
 		}
 		
 		System.out.println(Aluno1);
